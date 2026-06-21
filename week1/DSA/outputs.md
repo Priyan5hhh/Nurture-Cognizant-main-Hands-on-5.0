@@ -1,8 +1,7 @@
-Output : EcommerceSearchFunction
+# Output : EcommerceSearchFunction
 
-![alt text](image.png)
+![EcommerceSearchFunction](./image.png)
 
+# Output : FinancialForecast
 
-Output : FinancialForecast
-
-![alt text](image-1.png)
+![FinancialForecast](./image-1.png)
