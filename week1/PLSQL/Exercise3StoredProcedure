@@ -1,0 +1,131 @@
+-- SCENARIO 1: The bank needs to process monthly interest for all savings accounts.
+-- Question: Write a stored procedure ProcessMonthlyInterest that calculates and updates the balance of all savings accounts by applying an interest rate of 1% to the current balance.
+-- Solution:
+
+CREATE TABLE Accounts (
+    AccountID NUMBER PRIMARY KEY,
+    CustomerName VARCHAR2(100),
+    AccountType VARCHAR2(20),
+    Balance NUMBER(12,2)
+);
+
+INSERT INTO Accounts VALUES (101, 'Rahul Sharma', 'Savings', 10000);
+INSERT INTO Accounts VALUES (102, 'Priya Singh', 'Savings', 20000);
+INSERT INTO Accounts VALUES (103, 'Amit Verma', 'Current', 15000);
+
+COMMIT;
+
+CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest AS
+BEGIN
+    UPDATE Accounts
+    SET Balance = Balance + (Balance * 0.01)
+    WHERE AccountType = 'Savings';
+
+    COMMIT;
+END;
+/
+
+-- Execute Procedure
+BEGIN
+    ProcessMonthlyInterest;
+END;
+/
+
+-- Verify Result
+SELECT * FROM Accounts;
+
+
+-- SCENARIO 2: The bank wants to implement a bonus scheme for employees based on their performance.
+-- Question: Write a stored procedure UpdateEmployeeBonus that updates the salary of employees in a given department by adding a bonus percentage passed as a parameter.
+-- Solution:
+
+CREATE TABLE Employees (
+    EmployeeID NUMBER PRIMARY KEY,
+    EmployeeName VARCHAR2(100),
+    Department VARCHAR2(50),
+    Salary NUMBER(10,2)
+);
+
+INSERT INTO Employees VALUES (1, 'Rohan Gupta', 'IT', 50000);
+INSERT INTO Employees VALUES (2, 'Sneha Jain', 'IT', 60000);
+INSERT INTO Employees VALUES (3, 'Vikas Kumar', 'HR', 45000);
+
+COMMIT;
+
+CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus(
+    p_Department IN VARCHAR2,
+    p_BonusPercent IN NUMBER
+) AS
+BEGIN
+    UPDATE Employees
+    SET Salary = Salary + (Salary * p_BonusPercent / 100)
+    WHERE Department = p_Department;
+
+    COMMIT;
+END;
+/
+
+-- Execute Procedure
+BEGIN
+    UpdateEmployeeBonus('IT', 10);
+END;
+/
+
+-- Verify Result
+SELECT * FROM Employees;
+
+
+
+-- SCENARIO 3: Customers should be able to transfer funds between their accounts.
+-- Question: Write a stored procedure TransferFunds that transfers a specified amount from one account to another, checking that the source account has sufficient balance before making the transfer.
+-- Solution:
+
+CREATE TABLE Accounts (
+    AccountID NUMBER PRIMARY KEY,
+    CustomerName VARCHAR2(100),
+    Balance NUMBER(12,2)
+);
+
+INSERT INTO Accounts VALUES (201, 'Ankit Sharma', 50000);
+INSERT INTO Accounts VALUES (202, 'Neha Singh', 30000);
+
+COMMIT;
+
+CREATE OR REPLACE PROCEDURE TransferFunds(
+    p_FromAccount IN NUMBER,
+    p_ToAccount IN NUMBER,
+    p_Amount IN NUMBER
+) AS
+    v_Balance NUMBER;
+BEGIN
+    SELECT Balance
+    INTO v_Balance
+    FROM Accounts
+    WHERE AccountID = p_FromAccount;
+
+    IF v_Balance >= p_Amount THEN
+        UPDATE Accounts
+        SET Balance = Balance - p_Amount
+        WHERE AccountID = p_FromAccount;
+
+        UPDATE Accounts
+        SET Balance = Balance + p_Amount
+        WHERE AccountID = p_ToAccount;
+
+        COMMIT;
+
+        DBMS_OUTPUT.PUT_LINE('Transfer Successful');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Insufficient Balance');
+    END IF;
+END;
+/
+
+-- Execute Procedure
+BEGIN
+    TransferFunds(201, 202, 10000);
+END;
+/
+
+-- Verify Result
+SELECT * FROM Accounts;
