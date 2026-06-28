@@ -1,4 +1,4 @@
-<img width="959" height="566" alt="image" src="https://github.com/user-attachments/assets/d58b48ff-42e2-4135-9157-509dec41816f" /># output : SettingUpJunit 
+# output : SettingUpJunit 
 
 <img width="959" height="567" alt="image" src="https://github.com/user-attachments/assets/d33336d9-19bb-475e-85d3-6ed5c0396054" />
 
