@@ -10,6 +10,10 @@
 
 <img width="959" height="569" alt="image" src="https://github.com/user-attachments/assets/df213565-166b-49ed-8ed9-d39cfb2d0f3d" />
 
-# output : MavenStubbing
+# output : MockitoStubbing
 
 <img width="959" height="569" alt="image" src="https://github.com/user-attachments/assets/a1404053-3420-4d24-aa9f-b375ba296b8b" />
+
+# output : Mockit Verifying interactions
+
+<img width="959" height="568" alt="image" src="https://github.com/user-attachments/assets/ca8c6646-634f-44c6-9ee5-b19fc840d0c8" />
