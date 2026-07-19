@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+.office-image {
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.featured-office,
+.office-listing {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px 25px;
+}
+
+.office-listing ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.office-listing li {
+  margin-bottom: 10px;
+}
