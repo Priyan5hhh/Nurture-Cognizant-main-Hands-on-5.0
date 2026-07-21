@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+.page {
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px 25px;
+}
+
+.page button {
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.flight-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.flight-table th,
+.flight-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.confirmation {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2e7d32;
+}

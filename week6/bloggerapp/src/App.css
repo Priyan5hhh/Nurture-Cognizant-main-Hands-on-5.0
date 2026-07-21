@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+.tabs {
+  margin-bottom: 10px;
+}
+
+.tabs button {
+  padding: 6px 14px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background-color: #282c34;
+  color: white;
+}
+
+.panel {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px 25px;
+}
+
+.panel ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.panel li {
+  margin-bottom: 8px;
+}
+
+.in-stock {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.status {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.status.published {
+  color: #2e7d32;
+}
+
+.status.draft {
+  color: #f9a825;
+}
+
+.status.archived {
+  color: #757575;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin-left: 6px;
+  background-color: #e0e0e0;
+}
+
+.badge.beginner {
+  background-color: #c8e6c9;
+}
+
+.badge.intermediate {
+  background-color: #fff9c4;
+}
+
+.badge.advanced {
+  background-color: #ffccbc;
+}
